@@ -1,9 +1,11 @@
 import "./App.css";
 import Message from "./components/Message";
+import NewMessage from "./components/NewMessage";
 import React, { useState } from "react";
 
 function App() {
   const [message, setMessage] = useState("");
+  const [childmessage, setChildMessage] = useState(null);
   const [counter, setCounter] = useState(0);
   const date = new Date();
   const currentTime = date.getHours();
@@ -11,7 +13,7 @@ function App() {
   const cssStyle = {};
   if (currentTime >= 1 && currentTime <= 12) {
     setTimeout(() => {
-      setMessage(5);
+      setMessage("Good Morning !");
     }, 100);
     cssStyle.color = "green";
   } else if (currentTime > 12 && currentTime <= 15) {
@@ -35,6 +37,11 @@ function App() {
     setCounter(counter + 1);
   };
 
+  const newmessage = (props) => {
+    console.log(props);
+    setChildMessage(props);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -50,6 +57,14 @@ function App() {
           >
             Decrement
           </button>
+          <div style={{ marginTop: 50 }}>
+            <NewMessage saveData={newmessage}></NewMessage>
+          </div>
+          {childmessage != null && counter > 0 && (
+            <div style={{ marginTop: 20 }}>
+              {childmessage} {counter} times.
+            </div>
+          )}
         </div>
       </header>
     </div>
