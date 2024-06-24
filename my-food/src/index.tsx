@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -10,6 +10,8 @@ import Error from "./components/Error";
 import Body from "./components/Body";
 import RestMenu from "./components/RestMenu";
 
+const [userList, setUserList] = useState();
+const handleSaveUSer = () => {};
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +23,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: <About saveUser={handleSaveUSer}></About>,
       },
       {
         path: "/contact",
@@ -32,7 +34,7 @@ const appRouter = createBrowserRouter([
         element: <RestMenu></RestMenu>,
       },
     ],
-    errorElement: <Error></Error>,
+    // errorElement: <Error></Error>,
   },
 ]);
 
