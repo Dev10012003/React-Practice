@@ -9,9 +9,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Body from "./components/Body";
 import RestMenu from "./components/RestMenu";
+import Cart from "./components/Cart";
 
-const [userList, setUserList] = useState();
-const handleSaveUSer = () => {};
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -23,18 +22,22 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About saveUser={handleSaveUSer}></About>,
-      },
-      {
-        path: "/contact",
-        element: <Contact></Contact>,
+        element: <About></About>,
       },
       {
         path: "/restaurents/:id",
         element: <RestMenu></RestMenu>,
       },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
+      },
     ],
     // errorElement: <Error></Error>,
+  },
+  {
+    path: "/contact",
+    element: <Contact></Contact>,
   },
 ]);
 

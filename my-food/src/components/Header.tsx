@@ -29,7 +29,9 @@ function Header() {
           <li className="px-4 text-xl">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4 text-xl">Cart</li>
+          <li className="px-4 text-xl">
+            <Link to="/cart">Cart</Link>
+          </li>
           <button
             className="px-4 text-xl"
             onClick={() => {

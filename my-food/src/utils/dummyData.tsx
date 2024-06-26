@@ -504,3 +504,17 @@ export const restMenu: IRestMenu[] = [
     ],
   },
 ];
+
+export interface IFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+  confirmPassword: string;
+  gender: string;
+  city: string;
+  age: string;
+  interests: string[];
+  birthDate: string;
+}

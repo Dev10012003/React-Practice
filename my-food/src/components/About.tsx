@@ -27,7 +27,7 @@ interface IAboutProps {
   }) => void;
 }
 
-function About(props: IAboutProps) {
+function About() {
   const [formData, setFormData] = useState<IFormData>({
     firstName: "",
     lastName: "",
@@ -97,7 +97,6 @@ function About(props: IAboutProps) {
         birthDate: formData.birthDate,
       };
 
-      props.saveUser(userData);
       console.log(userData);
       setFormData({
         firstName: "",
