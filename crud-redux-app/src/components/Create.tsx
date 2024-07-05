@@ -53,7 +53,7 @@ function Create() {
     onSubmit: (values) => {
       dispatch(addUser(values));
       console.log(values);
-      navigate("/");
+      navigate("/home");
     },
   });
 

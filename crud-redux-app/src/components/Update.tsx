@@ -70,7 +70,7 @@ function Update() {
           website: values.website,
         })
       );
-      navigate("/");
+      navigate("/home");
     },
   });
 

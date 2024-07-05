@@ -1,3 +1,21 @@
+import {
+  AccountBalanceOutlined,
+  ArticleOutlined,
+  Groups2Outlined,
+  Home,
+  LocalOfferOutlined,
+  LocationCity,
+  PaidOutlined,
+  PaymentsOutlined,
+  PeopleOutline,
+  QrCodeScanner,
+  ReceiptLongOutlined,
+  RestaurantMenu,
+  ReviewsOutlined,
+  SettingsOutlined,
+  Storefront,
+} from "@mui/icons-material";
+
 interface Restaurant {
   value: string;
   label: string;
@@ -57,4 +75,76 @@ export const restaurants: Restaurant[] = [
   },
 ];
 
-// Now you can use the `restaurants` array without TypeScript errors
+interface MenuItem {
+  primaryText: string;
+  icon: JSX.Element;
+  link: string;
+}
+export const menuItems: MenuItem[] = [
+  { primaryText: "Dashboard", icon: <Home sx={{ fontSize: 30 }} />, link: "/" },
+  {
+    primaryText: "Restaurants",
+    icon: <Storefront sx={{ fontSize: 30 }} />,
+    link: "/restaurants",
+  },
+  {
+    primaryText: "Locations",
+    icon: <LocationCity sx={{ fontSize: 30 }} />,
+    link: "/locations",
+  },
+  {
+    primaryText: "Menu",
+    icon: <RestaurantMenu sx={{ fontSize: 30 }} />,
+    link: "/menu",
+  },
+  {
+    primaryText: "QR Codes",
+    icon: <QrCodeScanner sx={{ fontSize: 30 }} />,
+    link: "/qr-codes",
+  },
+  {
+    primaryText: "Users",
+    icon: <PeopleOutline sx={{ fontSize: 30 }} />,
+    link: "/users",
+  },
+  {
+    primaryText: "Pomo Codes",
+    icon: <LocalOfferOutlined sx={{ fontSize: 30 }} />,
+    link: "/pomo-codes",
+  },
+  {
+    primaryText: "Tabs",
+    icon: <ReceiptLongOutlined sx={{ fontSize: 30 }} />,
+    link: "/tabs",
+  },
+  {
+    primaryText: "Reviews",
+    icon: <ReviewsOutlined sx={{ fontSize: 30 }} />,
+    link: "/reviews",
+  },
+  {
+    primaryText: "Payments",
+    icon: <AccountBalanceOutlined sx={{ fontSize: 30 }} />,
+    link: "/payments",
+  },
+  {
+    primaryText: "Disbursements",
+    icon: <PaidOutlined sx={{ fontSize: 30 }} />,
+    link: "/disbursements",
+  },
+  {
+    primaryText: "Payouts",
+    icon: <PaymentsOutlined sx={{ fontSize: 30 }} />,
+    link: "/payouts",
+  },
+  {
+    primaryText: "Statements",
+    icon: <ArticleOutlined sx={{ fontSize: 30 }} />,
+    link: "/statements",
+  },
+  {
+    primaryText: "Guests",
+    icon: <Groups2Outlined sx={{ fontSize: 30 }} />,
+    link: "/guests",
+  },
+];

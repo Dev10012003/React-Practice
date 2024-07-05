@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteUser } from "./UserReducer";
+import { Pagination } from "@mui/material";
 
 interface IUser {
   id: number;
@@ -18,12 +19,21 @@ interface RootState {
 function Home() {
   const users = useSelector((state: RootState) => state.users);
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const usersPerPage = 5;
+  const handleChangePage = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setPage(value);
+  };
 
   const handleDelete = (id: number) => {
     dispatch(deleteUser({ id: id }));
   };
+  const startIndex = (page - 1) * usersPerPage;
+  const paginatedUsers = users.slice(startIndex, startIndex + usersPerPage);
 
-  console.log(users);
   return (
     <div className="d-flex flex-column justify-content-center align-items-center bg-light">
       <h1>List of Users</h1>
@@ -45,7 +55,7 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user: IUser) => (
+            {paginatedUsers.map((user: IUser) => (
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
@@ -70,6 +80,16 @@ function Home() {
             ))}
           </tbody>
         </table>
+        <div className="d-flex justify-content-center mt-3">
+          <Pagination
+            count={Math.ceil(users.length / usersPerPage)}
+            page={page}
+            onChange={handleChangePage}
+            variant="text"
+            shape="circular"
+            color="primary"
+          />
+        </div>
       </div>
     </div>
   );

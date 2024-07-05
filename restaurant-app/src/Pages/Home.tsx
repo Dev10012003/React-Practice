@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Box, Button, Card, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import { url } from "inspector";
 import Banner from "../images/banner.jpeg";
 
 function Home() {
@@ -13,7 +12,7 @@ function Home() {
           backgroundImage: `url(${Banner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "100vh", // Example: Set a minimum height if needed
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
